@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="analysis_sport.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_gps_sport.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_analysis.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t2.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t3.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t4.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t5.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t6.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t7.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t8.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t9.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ms_sport_category_t10.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mul_sport_common.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mul_sport_factory.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mul_sport_ops.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mul_sport_platform.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mul_sport_sector_manager.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_motion_data_rollback_handle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_motion_gps_handle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_motion_public_part.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="multi_motion_sport_handle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vital_info_data_handle.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vital_info_platform.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="zh_app_sports_data.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="module_sport_app.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ms_gps_sport.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_analysis.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t1.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t2.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t3.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t4.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t5.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t6.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t7.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t8.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t9.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ms_sport_category_t10.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_common.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_data_struct.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_factory.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_ops.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_platform.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_sector_id_list.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_sector_manager.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mul_sport_ver_def.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_motion_data_rollback_handle.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_motion_gps_handle.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_motion_public_part.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="multi_motion_sport_handle.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vital_info_data_handle.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vital_info_data_struct.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vital_info_platform.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zh_app_sports_data.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zh_flash_map.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zh_flash_memory.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="module_sport_app.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
