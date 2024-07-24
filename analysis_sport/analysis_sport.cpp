@@ -18,7 +18,7 @@ int main()
    mul_sport_platform_init();//初始化函数指针数组
    mul_sport_analysis_record();
    mul_sport_analysis_points();
-    //mul_sport_analysis_gps_points();
+  // mul_sport_analysis_gps_points();
     system("pause");
     return 0;
 }

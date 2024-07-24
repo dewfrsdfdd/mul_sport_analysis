@@ -679,7 +679,7 @@ typedef union {
             struct {
                 uint8_t  data_type;
                 uint32_t timestamp;
-                Swimming_Posture_Type  posture;
+                uint8_t  posture;
                 uint16_t pace;
                 uint16_t swolf;
             }section_data;
@@ -3327,7 +3327,7 @@ typedef union {
 
         uint16_t recover_time;
         uint16_t arm_pull_count;
-        Swimming_Posture_Type posture;
+        uint8_t  posture;
         uint8_t pull_rate;
         uint16_t turn_count;
         uint16_t avg_swolf;

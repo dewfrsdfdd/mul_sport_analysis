@@ -131,7 +131,7 @@ static bool MUL_SPORT_POSSIBLY_UNUSED get_swimming_sport_repo_v6(void *p_output_
     memcpy(p_output_data,
            (uint8_t *)&swimming_repo_data.data_s,
            sizeof(swimming_repo_data.data_s));
-
+    printf("%s,%d\n", __func__, sizeof(swimming_repo_data.data_s));
     *p_output_data_len = sizeof(swimming_repo_data.data_s);
 
     return true;
