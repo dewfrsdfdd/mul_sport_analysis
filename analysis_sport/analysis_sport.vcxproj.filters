@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="analysis_sport.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ms_gps_sport.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -91,6 +88,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="module_sport_app.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="analysis_sport.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="zh_flash_opter.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,6 +189,12 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="module_sport_app.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="daily_activity_data_struct.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zh_flash_opter.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

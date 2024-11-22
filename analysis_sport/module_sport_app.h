@@ -6,7 +6,7 @@
 //#include "zh_middle_data_manager.h"
 #include "mul_sport_platform.h"
 #include "mul_sport_common.h"
-#include "zh_app_sports_data.h"
+// #include "zh_app_sports_data.h"
 
 #if defined(ENUM_PROJECT_NAME_N65B_GLOBAL)  
 #define ZH_GPS_DRAW 1

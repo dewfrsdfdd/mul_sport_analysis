@@ -1,46 +1,9 @@
-﻿  ms_sport_analysis.c
-D:\analysis\analysis_sport\ms_sport_analysis.c(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_common.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_data_struct.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\vital_info_data_struct.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_data_struct.h(1016,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_data_struct.h(4216,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_ops.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_platform.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\vital_info_platform.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\zh_app_sports_data.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\zh_app_sports_data.h(726,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\zh_flash_map.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\multi_motion_sport_handle.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_sector_id_list.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\mul_sport_sector_manager.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\multi_motion_gps_handle.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\multi_motion_sport_handle.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\multi_motion_gps_handle.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\ms_gps_sport.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\ms_sport_analysis.c(323,12): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 3 拥有了类型“p_ms_abstract_config_t”
-D:\analysis\analysis_sport\ms_sport_analysis.c(323,12): warning C4313: "printf": 格式字符串中的 "%x" 与类型为 "p_ms_abstract_config_t" 的参数 3 冲突
-D:\analysis\analysis_sport\ms_sport_analysis.c(323,12): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 4 拥有了类型“p_ms_abstract_sport_handle_t”
-D:\analysis\analysis_sport\ms_sport_analysis.c(323,12): warning C4313: "printf": 格式字符串中的 "%x" 与类型为 "p_ms_abstract_sport_handle_t" 的参数 4 冲突
-D:\analysis\analysis_sport\ms_sport_analysis.c(343,78): warning C4244: “=”: 从“uint16_t”转换到“uint8_t”，可能丢失数据
-D:\analysis\analysis_sport\ms_sport_analysis.c(350,16): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“unsigned __int64”
-D:\analysis\analysis_sport\ms_sport_analysis.c(350,16): message : 请考虑在格式字符串中使用“%lld”
-D:\analysis\analysis_sport\ms_sport_analysis.c(350,16): message : 请考虑在格式字符串中使用“%Id”
-D:\analysis\analysis_sport\ms_sport_analysis.c(350,16): message : 请考虑在格式字符串中使用“%I64d”
-D:\analysis\analysis_sport\ms_sport_analysis.c(365,33): warning C4267: “+=”: 从“size_t”转换到“uint32_t”，可能丢失数据
-D:\analysis\analysis_sport\ms_sport_analysis.c(505,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\ms_sport_analysis.c(335,18): warning C4101: “idx_pos”: 未引用的局部变量
-D:\analysis\analysis_sport\ms_sport_analysis.c(739,79): warning C4244: “=”: 从“uint16_t”转换到“uint8_t”，可能丢失数据
-D:\analysis\analysis_sport\ms_sport_analysis.c(749,16): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 3 拥有了类型“size_t”
-D:\analysis\analysis_sport\ms_sport_analysis.c(749,16): message : 请考虑在格式字符串中使用“%zd”
-D:\analysis\analysis_sport\ms_sport_analysis.c(759,33): warning C4267: “+=”: 从“size_t”转换到“uint32_t”，可能丢失数据
-D:\analysis\analysis_sport\ms_sport_analysis.c(802,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(802,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 3 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(806,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(806,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(806,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 3 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(884,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-D:\analysis\analysis_sport\ms_sport_analysis.c(971,36): warning C4477: “printf”: 格式字符串“%lf”需要类型“double”的参数，但可变参数 2 拥有了类型“int”
-D:\analysis\analysis_sport\ms_sport_analysis.c(987,36): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“double”
-D:\analysis\analysis_sport\ms_sport_analysis.c(1309,76): warning C4133: “函数”: 从“uint32_t *”到“size_t *”的类型不兼容
-  analysis_sport.vcxproj -> D:\analysis\analysis_sport\x64\Debug\analysis_sport.exe
+﻿  analysis_sport.c
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(20,9): warning C4013: “memset”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(36,4): warning C4013: “mul_sport_platform_init”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(37,4): warning C4013: “mul_sport_analysis_record”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(38,4): warning C4013: “mul_sport_analysis_points”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(39,3): warning C4013: “mul_sport_analysis_gps_points”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(40,3): warning C4013: “mul_sport_analysis_daily_data_points”未定义；假设外部返回 int
+D:\new_an\mul_sport_analysis\analysis_sport\analysis_sport.c(41,3): warning C4013: “mul_sport_analysis_daily_data_record”未定义；假设外部返回 int
+  analysis_sport.vcxproj -> D:\new_an\mul_sport_analysis\analysis_sport\x64\Debug\analysis_sport.exe

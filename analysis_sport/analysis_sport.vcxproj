@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="analysis_sport.cpp" />
+    <ClCompile Include="analysis_sport.c" />
     <ClCompile Include="module_sport_app.c" />
     <ClCompile Include="ms_gps_sport.c" />
     <ClCompile Include="ms_sport_analysis.c" />
@@ -153,8 +153,10 @@
     <ClCompile Include="vital_info_data_handle.c" />
     <ClCompile Include="vital_info_platform.c" />
     <ClCompile Include="zh_app_sports_data.c" />
+    <ClCompile Include="zh_flash_opter.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="daily_activity_data_struct.h" />
     <ClInclude Include="module_sport_app.h" />
     <ClInclude Include="ms_gps_sport.h" />
     <ClInclude Include="ms_sport_analysis.h" />
@@ -186,6 +188,7 @@
     <ClInclude Include="zh_app_sports_data.h" />
     <ClInclude Include="zh_flash_map.h" />
     <ClInclude Include="zh_flash_memory.h" />
+    <ClInclude Include="zh_flash_opter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

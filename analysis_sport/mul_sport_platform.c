@@ -3,7 +3,7 @@
 #if 1
 #include "mul_sport_common.h"
 
-#if FLASH_MANAGER_SWITCH
+#if 1///FLASH_MANAGER_SWITCH
 
 #include "mul_sport_platform.h"
 #include "mul_sport_factory.h"

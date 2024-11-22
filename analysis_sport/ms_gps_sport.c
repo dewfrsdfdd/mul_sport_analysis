@@ -69,9 +69,11 @@ static bool MUL_SPORT_POSSIBLY_UNUSED get_gps_data_v2
 static p_ms_abstract_gps_handle_t MUL_SPORT_POSSIBLY_UNUSED mul_sport_get_gps_handle_v1(void)
 {
     const static ms_common_gps_handle_v1_t gps_hanlde_v1_v1 = {
-        .gps_handle.magic_number = MUL_SPORT_MAGIC_NUMBER,
-        .gps_handle.version = MUL_SPORT_VER_1,
-        .gps_handle.pf_get_gps_data = get_gps_data_v1,
+    .gps_handle = {
+        .magic_number = MUL_SPORT_MAGIC_NUMBER,
+        .version = MUL_SPORT_VER_1,
+        .pf_get_gps_data = get_gps_data_v1,
+    }
     };
 
     return (p_ms_abstract_gps_handle_t)&gps_hanlde_v1_v1;
@@ -80,9 +82,11 @@ static p_ms_abstract_gps_handle_t MUL_SPORT_POSSIBLY_UNUSED mul_sport_get_gps_ha
 static p_ms_abstract_gps_handle_t MUL_SPORT_POSSIBLY_UNUSED mul_sport_get_gps_handle_v2(void)
 {
     const static ms_common_gps_handle_v1_t gps_hanlde_v1_v2 = {
-        .gps_handle.magic_number = MUL_SPORT_MAGIC_NUMBER,
-        .gps_handle.version = MUL_SPORT_VER_1,
-        .gps_handle.pf_get_gps_data = get_gps_data_v2,
+    .gps_handle = {
+        .magic_number = MUL_SPORT_MAGIC_NUMBER,
+        .version = MUL_SPORT_VER_1,
+        .pf_get_gps_data = get_gps_data_v2,
+}
     };
 
     return (p_ms_abstract_gps_handle_t)&gps_hanlde_v1_v2;

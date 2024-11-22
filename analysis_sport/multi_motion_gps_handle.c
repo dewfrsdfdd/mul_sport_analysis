@@ -11,7 +11,6 @@
 #include "multi_motion_data_rollback_handle.h"
 #include "mul_sport_platform.h"
 #include "multi_motion_public_part.h"
-#include "ms_gps_sport.h"
 #include "mul_sport_factory.h"
 
 typedef struct

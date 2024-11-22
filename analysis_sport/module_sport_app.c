@@ -1,6 +1,8 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "module_sport_app.h"
+#include "zh_app_sports_data.h"
 // #include "algoTask.h"
 // #include "data_processing.h"
 // #include "sleepAlgorithm.h"
@@ -457,7 +459,7 @@ void init_sport_course_somethings(Running_course_type type)
         sport_running_course.total_time_count = ((sport_course_array[0]) & 0xff) * 60;
         sport_running_course.current_course_time_count = 0;
         sport_running_course.total_course_time_count = ((sport_course_array[sport_running_course.current_subsection]) & 0xff) * 60;
-        sport_running_course.current_sub_type = (sport_course_array[sport_running_course.current_subsection]) >> 8;
+        sport_running_course.current_sub_type = (Running_course_sub_type)((sport_course_array[sport_running_course.current_subsection]) >> 8);
     }
     break;
     default:
@@ -483,38 +485,38 @@ extern uint8_t get_avr_heartRate(void);
 extern void clearheart5second(void);
 Sport_Remind_Type sport_remind_struct =
     {
-        .sport_timecount1 = 0,
-        .sport_timecount2 = 0,
-        .sport_timecount3 = 0,
-        .sport_timedelay1 = 0,
-        .sport_timedelay2 = 0,
-        .sport_timedelay3 = 0,
-        .sport_time1_switch = 0,
-        .sport_time2_switch = 0,
-        .sport_time3_switch = 0,
-        .sport_high_low_switch = 0,
-        .sport_hr_timeout = 0,
-        .sport_hr_timedelay = 0,
+    0,
+  0,
+ 0,
+ 0,
+0,
+ 0,
+ 0,
+ 0,
+0,
+ 0,
+0,
+0,
 };
 _Sport_interval_training_type sport_interval_training =
     {
-        .completion_times = 0,
-        .total_times = 0,
-        .current_time_count = 0,
-        .total_time_count = 5 * 60,
-        .current_distance = 0,
-        .total_distance = 0,
-        .mode = 0,
-        .segment_kcal = 0,
+(SPORT_interval_training_mode)0,
+(SPORT_interval_training_type)0,
+0,
+ 5 * 60,
+0,
+0,
+0,
+ 0,
 };
 Sport_Running_Course_Type sport_running_course =
     {
-        .current_subsection = 0,
-        .sport_course_type = 1,
-        .current_sub_type = 1,
-        .total_time_count = 0,
-        .total_subsection = 0,
-        .current_course_time_count = 0,
+(Running_course_type)0,
+  (Running_course_sub_type)1,
+ 1,
+0,
+0,
+0,
 };
 bool module_ms_sport_app_is_frist_page(uint16_t sport_type) // 判断运动是否在首页
 {
@@ -1155,7 +1157,7 @@ bool module_mul_sport_set_best_points(uint16_t sport_type)
 }
 void sport_ing_end_jump_to_table()
 {
-    if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+    if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
     {
        // if(module_ms_app_is_gps_sport_type(Get_current_sporting_type()))
         {
@@ -1525,6 +1527,7 @@ bool sport_start(Sport_type sport_type)
 #if !defined(BSP_USING_PC_SIMULATOR) && defined(XIAOMI_ALGO_LIB_ON_LCPU)
             clearheart5second();
 #endif
+            extern void sport_save_data_clear(void);
             sport_save_data_clear(); // 开启多运动需要先将我们的数据清除一下
 #if ZH_GPS_DRAW
         if(module_ms_app_is_gps_sport_type(Get_current_sporting_type()))
@@ -1606,10 +1609,10 @@ bool sport_start(Sport_type sport_type)
             }
             else
             {
-                if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+                if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
                 {
 #if INTERVAL_TRAINING_SELECT
-                    if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_WARM_UP_SWITCH))
+                    if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_WARM_UP_SWITCH))
                     {
                         mul_sport_set_sport_sit_type(SIT_WARM_UP);
                     }
@@ -1661,11 +1664,11 @@ bool sport_start(Sport_type sport_type)
         // 10. 下潜深度警告
         // 11. 水面时间提醒
         // 12. 潜水提醒方式（1声音，2振动，3声音+振动）
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_SEETING_DISTANCE_REMIND))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_SEETING_DISTANCE_REMIND))
         {
             remind |= 1 << 1;
         }
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_SEETING_PACE_REMIND))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_SEETING_PACE_REMIND))
         {
             if (Get_current_sporting_type() == SPORTING_Outdoor_cycling_TYPE)
             {
@@ -1678,26 +1681,26 @@ bool sport_start(Sport_type sport_type)
         {
             remind |= 1 << 4;
         }
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_SEETING_HR))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_SEETING_HR))
         {
             remind |= 1 << 5;
         }
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_ENERGY_SUPPLY_TIME) ||
-            module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_ENERGY_SUPPLY_DISTANCE))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_ENERGY_SUPPLY_TIME) ||
+            module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_ENERGY_SUPPLY_DISTANCE))
         {
             remind |= 1 << 6;
         }
         miwear_dev_app_event_set((uint8_t)SPORT_REMIND_NAME_ID, mul_sport_get_timestamp(), 0,
                                  pb_sport_type_trans(Get_current_sporting_type()), remind, 0, 0, 0, 0);
 #endif
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
         {
             uint8_t warm_up = 0, relax = 0;
-            if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_WARM_UP_SWITCH))
+            if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_WARM_UP_SWITCH))
             {
                 warm_up = 1;
             }
-            if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH))
+            if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH))
             {
                 relax = 1;
             }
@@ -1845,9 +1848,9 @@ bool sport_stop(void)
     if (misc_sport_data.sport_is_app_sponsor == 0)
     {
 #if INTERVAL_TRAINING_SELECT
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
         {
-            if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH))
+            if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH))
             {
                 // mul_sport_platform_change_sit_type(INTERVAL_TRAINING_RELAX); // 切换状态,
                 mul_sport_set_is_change_sit_type(true);
@@ -2044,9 +2047,9 @@ bool sport_stop_when_full(void)
     if (misc_sport_data.sport_is_app_sponsor == 0)
     {
 #if INTERVAL_TRAINING_SELECT
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
         {
-            if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH))
+            if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH))
             {
                 // mul_sport_platform_change_sit_type(INTERVAL_TRAINING_RELAX); // 切换状态,
                 mul_sport_set_is_change_sit_type(true);
@@ -2218,9 +2221,9 @@ bool sport_stop_for_power_down(void) // 低电关机的时候直接保存,发消
     if (misc_sport_data.sport_is_app_sponsor == 0)
     {
 #if INTERVAL_TRAINING_SELECT
-        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
         {
-            if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH))
+            if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH))
             {
                 //mul_sport_platform_change_sit_type(INTERVAL_TRAINING_RELAX); // 切换状态,
                 mul_sport_set_is_change_sit_type(true);
@@ -2813,10 +2816,10 @@ void sport_data_interval_training_processing()
                 sport_interval_training.current_time_count++;
                 if (sport_interval_training.current_time_count == sport_setting_target_data[Get_current_sporting_type()].sport_interval_training_time)
                 {
-                    if (!module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                    if (!module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                         sport_interval_training.completion_times == sport_interval_training.total_times)
                     {
-                        sport_interval_training.type = 0;
+                        sport_interval_training.type = (SPORT_interval_training_type)0;
                         sport_interval_training.current_time_count = 0;
                         sport_interval_training.segment_kcal = 0;
                         sport_interval_training.current_count = 0;
@@ -2831,7 +2834,7 @@ void sport_data_interval_training_processing()
                         sport_interval_training.current_distance = 0;
                         sport_interval_training.segment_kcal = 0;
                         sport_interval_training.completion_times++;
-                        if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                        if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                             sport_interval_training.completion_times == sport_interval_training.total_times)
                         {
                             sport_interval_training.type = INTERVAL_TRAINING_RELAX;
@@ -2865,10 +2868,10 @@ void sport_data_interval_training_processing()
                 sport_interval_training.current_distance = 0;
                 sport_interval_training.type = INTERVAL_TRAINING_REST;
                 sport_interval_training.segment_kcal = 0;
-                if (!module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                if (!module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                     sport_interval_training.completion_times == sport_interval_training.total_times)
                 {
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.current_time_count = 0;
                     sport_interval_training.segment_kcal = 0;
                     Processing_after_interval_training(1);
@@ -2932,7 +2935,7 @@ void sport_data_interval_training_processing()
                     sport_interval_training.current_time_count = 0;
                     sport_interval_training.current_count = 0;
                     sport_interval_training.current_distance = 0;
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.completion_times = 0;
                     sport_interval_training.segment_kcal = 0;
                     Processing_after_interval_training(1); // 结束
@@ -2995,10 +2998,10 @@ void sport_data_interval_training_processing()
             }
             else
             {
-                if (!module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                if (!module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                     sport_interval_training.completion_times == sport_interval_training.total_times) // 结束
                 {
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.current_time_count = 0;
                     sport_interval_training.current_count = 0;
                     sport_interval_training.current_distance = 0;
@@ -3013,7 +3016,7 @@ void sport_data_interval_training_processing()
                     sport_interval_training.current_distance = 0;
                     sport_interval_training.type = INTERVAL_TRAINING_REST;
                     sport_interval_training.completion_times++;
-                    if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                    if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                         sport_interval_training.completion_times == sport_interval_training.total_times)
                     {
                         sport_interval_training.type = INTERVAL_TRAINING_RELAX;
@@ -3096,7 +3099,7 @@ void sport_data_interval_training_processing()
                     sport_interval_training.segment_kcal = 0;
                     sport_interval_training.current_count = 0;
                     sport_interval_training.current_distance = 0;
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.completion_times = 0;
                     Processing_after_interval_training(1); // 结束
                 }
@@ -3163,10 +3166,10 @@ void sport_data_interval_training_processing()
             }
             else
             {
-                if (!module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                if (!module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                     sport_interval_training.completion_times == sport_interval_training.total_times) // 结束
                 {
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.current_time_count = 0;
                     sport_interval_training.segment_kcal = 0;
                     sport_interval_training.current_count = 0;
@@ -3181,7 +3184,7 @@ void sport_data_interval_training_processing()
                     sport_interval_training.segment_kcal = 0;
                     sport_interval_training.type = INTERVAL_TRAINING_REST;
                     sport_interval_training.completion_times++;
-                    if (module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
+                    if (module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_RELAX_SWITCH) &&
                         sport_interval_training.completion_times == sport_interval_training.total_times)
                     {
                         sport_interval_training.type = INTERVAL_TRAINING_RELAX;
@@ -3259,7 +3262,7 @@ void sport_data_interval_training_processing()
                 {
                     sport_interval_training.current_time_count = 0;
                     sport_interval_training.segment_kcal = 0;
-                    sport_interval_training.type = 0;
+                    sport_interval_training.type = (SPORT_interval_training_type)0;
                     sport_interval_training.completion_times = 0;
                     Processing_after_interval_training(1); // 结束
                 }
@@ -3327,7 +3330,7 @@ void sport_course_second_processing()
         if (sport_running_course.current_subsection < sport_running_course.total_subsection)
         {
             sport_running_course.current_subsection++;
-            sport_running_course.current_sub_type = (sport_course_array[sport_running_course.current_subsection]) >> 8;
+            sport_running_course.current_sub_type = (Running_course_sub_type)((sport_course_array[sport_running_course.current_subsection]) >> 8);
             sport_running_course.current_course_time_count = 0;
             sport_running_course.total_course_time_count = ((sport_course_array[sport_running_course.current_subsection]) & 0xff)*60;
            // extern void set_sport_run_remind_state(bool state);
@@ -3767,7 +3770,7 @@ void pop_sport_event(void)
 {
 #define MAX_LOG_SIZE 300
     char* tmp_buff = NULL;
-    tmp_buff = malloc(MAX_LOG_SIZE);
+    tmp_buff = (char*)malloc(MAX_LOG_SIZE);
 #if 1
     printf("pop_sport_event %04x  %04x %d,second:%d\n", sport_event_ongo, sport_event_req, sport_disp_timeout, sport_event_subtype);
     if ((sport_event_ongo == 0 && sport_event_req) || (sport_disp_timeout >= 3 && sport_event_req && sport_event_req >= sport_event_ongo))
@@ -4267,8 +4270,8 @@ void mdoule_sport_app_control_heart(void)
 void sport_state_log(uint8_t act)
 {
 #define MAX_LOG_SEDENTARY_SIZE (300)
-    char *buf;
-    buf = malloc(MAX_LOG_SEDENTARY_SIZE);
+    char *buf = NULL;
+    buf = (char*)malloc(MAX_LOG_SEDENTARY_SIZE);
     if(buf==NULL) return;
    // char buf[MAX_LOG_SEDENTARY_SIZE] = "";
     memset(buf, 0, MAX_LOG_SEDENTARY_SIZE);
@@ -5387,7 +5390,7 @@ uint16_t check_remind_status(uint16_t sport_type, uint8_t current_remind_type)
 {
     uint8_t choose = 0;
     uint16_t select = 0;
-    choose = get_sport_seeting_data_switch(Get_current_sporting_type(), 1, 4);
+    choose = get_sport_seeting_data_switch((Sport_type)Get_current_sporting_type(), 1, 4);
     if (choose == 1 && current_remind_type == REMIND_KCAL) //kcal
     {
         select = check_section_for_sport_remind(choose);
@@ -7272,7 +7275,7 @@ uint8_t module_sport_get_gps_status(void){
 static uint8_t sport_target = 0;
 void module_sport_app_erase_target(void)
 {
-    if (misc_sport_data.is_auto_sport||module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+    if (misc_sport_data.is_auto_sport||module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
     {
         printf("%s\n",__func__);
         sport_target = sport_setting_target_data[Get_current_sporting_type()].sport_seeting_choose_target & 0xff;
@@ -7310,7 +7313,7 @@ void module_sport_app_clear_target(uint32_t flag)
 
 void module_sport_app_release_target(void)
 {
-    if (misc_sport_data.auto_sportting_flag||module_ms_app_get__data_target_is_switch(Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
+    if (misc_sport_data.auto_sportting_flag||module_ms_app_get__data_target_is_switch((Sport_type)Get_current_sporting_type(), SPORT_INTERVAL_TRAINING_SWITCH))
     {
         for (uint8_t i = 1; i < 5; i++)
         {
